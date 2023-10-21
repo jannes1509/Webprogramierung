@@ -1,0 +1,111 @@
+* Basis-Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f4f6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #0074d9;
+    color: #fff;
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2px; /* Abstand zur blauen Farbe des Headers */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    text-align: center;
+    flex: 1;
+    cursor: pointer;
+}
+
+
+/* Stil für Benutzerdetails */
+.user-details {
+    max-width: 800px;
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+.user-details h2 {
+    text-align: center;
+}
+
+.user-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Stil für einzelne Post-Karten */
+.post-card {
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 1rem;
+    flex: 0 0 calc(33.333% - 2rem);
+}
+
+.post-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.post-card p {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+/* Hover-Effekt für Post-Karten */
+.post-card:hover {
+    transform: scale(1.05);
+}
+
+/* Media Query für kleinere Bildschirme (max-width: 767px) */
+@media screen and (max-width: 767px) {
+    /* Stil für Benutzerdetails auf kleineren Bildschirmen anpassen */
+    .user-details {
+        padding: 1rem;
+    }
+
+    .user-details h2 {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    .user-posts {
+        flex-direction: column;
+    }
+
+    /* Stil für einzelne Post-Karten auf kleineren Bildschirmen anpassen */
+    .post-card {
+        flex: 0 0 100%;
+        margin: 0.5rem 0;
+    }
+
+    .post-card h3 {
+        font-size: 1rem;
+    }
+
+    .post-card p {
+        font-size: 0.8rem;
+    }
+
+    .post-card:hover {
+        transform: none;
+    }
+}
+

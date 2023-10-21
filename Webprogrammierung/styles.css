@@ -1,0 +1,313 @@
+/* Basis-Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f4f6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #0074d9;
+    color: #fff;
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px; /* Abstand zur blauen Farbe des Headers */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    text-align: center;
+    flex: 1;
+    cursor: pointer;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 800px; /* Größere Searchbar auf größeren Bildschirmen */
+    padding: 1rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+}
+
+.search-input-large {
+    padding: 0.75rem; /* Größere Searchbar auf größeren Bildschirmen */
+}
+
+.search-button {
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.result-container {
+    max-width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-box {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+.search-prompt {
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.3;
+}
+
+
+/* Responsives Design */
+@media screen and (min-width: 768px) {
+    /* Header */
+    header {
+        width: 100%;
+        background-color: #0074d9; /* Hinzugefügt: Hintergrundfarbe für den Header */
+        color: #fff; /* Hinzugefügt: Textfarbe für den Header */
+        padding: 1rem;
+    }
+
+    /* Suchleiste */
+    .search-container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem;
+        padding: 1rem;
+    }
+
+    .search-input {
+        width: auto;
+        flex: 1;
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 2px solid #0074d9;
+        border-radius: 5px; /* Hinzugefügt: Runde Ecken für die Suchleiste */
+    }
+
+    .search-button {
+        width: auto;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        background-color: #0074d9;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .search-button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Suchergebnisse */
+    .result-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    /* Usercards */
+    .user-card {
+        background-color: #fff;
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        margin: 1rem;
+        padding: 1rem;
+        flex: 0 0 calc(33.333% - 2rem);
+        transition: transform 0.3s; /* Hinzugefügt: Animation */
+    }
+
+    .user-card img {
+        max-width: 100%;
+        border-radius: 5px; /* Hinzugefügt: Runde Ecken für Bilder */
+    }
+
+    .user-card-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .user-card-details button {
+        background-color: #0074d9;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 0.3rem 1rem;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); /* Hinzugefügt: Box-Schatten */
+    }
+
+    .user-card-details button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Optische Abgrenzung der Suchergebnisse */
+    .user-card:not(:last-child) {
+        border-right: 2px solid #f3f4f6;
+    }
+
+    /* Moderner Aussehen für die Suchergebnisse */
+    .result-box {
+        padding: 1rem;
+        background-color: #f8f8f8;
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        margin: 1rem;
+        text-align: center;
+    }
+
+    /* Hover-Effekt für Usercards */
+    .user-card:hover {
+        transform: scale(1.05); /* Hinzugefügt: Vergrößerung beim Hover */
+    }
+}
+/* Basis-Styles (unverändert) */
+
+/* Optimierungen für kleinere Bildschirme */
+@media screen and (max-width: 767px) {
+    /* Header */
+    @media screen and (max-width: 767px) {
+        /* Header */
+        header {
+            text-align: center;
+            background-color: #0074d9;
+            color: #fff;
+            padding: 1rem;
+        }
+    
+        /* Suchleiste */
+        .search-container {
+            flex-direction: row;
+            justify-content: space-between; /* Hinzugefügt: Abstand zu den Seitenrändern */
+            align-items: center;
+            padding: 1rem;
+            margin: 0 1rem; /* Hinzugefügt: Abstand zu den Seitenrändern */
+        }
+    
+        .search-input {
+            width: auto;
+            flex: 1;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 2px solid #0074d9;
+            border-radius: 5px;
+            margin-left: 0.5rem; /* Hinzugefügt: Abstand zum rechten Seitenrand */
+        }
+    
+        .search-button {
+            width: auto;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            background-color: #0074d9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 0.5rem;
+        }
+    
+        .search-button:hover {
+            background-color: #0056b3;
+        }
+
+    .search-button {
+        width: flex;
+    }
+
+    /* Suchergebnisse */
+    .result-container {
+        width: 100%;
+    }
+
+    /* Usercards */
+    .user-card {
+        background-color: #fff;
+        flex: 0 0 100%;
+        margin: 0.5rem 0;
+        padding: 1rem;
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+
+    .user-card:hover {
+        transform: scale(1.05);
+    }
+
+    .user-card img {
+        max-width: 100%;
+        border-radius: 5px;
+    }
+
+    .user-card-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .user-card-details button {
+        width: 100%;
+        background-color: #0074d9;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 0.3rem 1rem;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .user-card-details button:hover {
+        background-color: #0056b3;
+    }
+    }
+}
