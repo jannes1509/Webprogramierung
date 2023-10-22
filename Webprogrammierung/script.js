@@ -1,18 +1,19 @@
 document.getElementById("search-button").addEventListener("click", function () {
     const city = document.getElementById("search").value;
-
+    //Prüfen, ob eine Stadt eingeben wurde
     if (city) {
         const apiUrl = `https://dummyjson.com/users/filter?key=address.city&value=${city}`;
 
+        //API-Aufruf
         fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
                 const users = data.users;
-
+                //Prüfen, ob in der Stadt User vorhanden sind
                 if (users.length > 0) {
                     const resultContainer = document.getElementById("result");
                     resultContainer.innerHTML = "";
-
+                    //Erstellen der Usercard für jeden einzelnen User
                     users.forEach(user => {
                         const userCard = document.createElement("div");
                         userCard.classList.add("user-card");
@@ -21,31 +22,35 @@ document.getElementById("search-button").addEventListener("click", function () {
                         userName.textContent = `${user.firstName} ${user.lastName}`;
                         userCard.appendChild(userName);
 
+                        //Hinzufügen des Details Button, über den auf die Detail Website zugegriffen werden kann
                         const detailsButton = document.createElement("button");
                         detailsButton.classList.add("details-button");
                         detailsButton.textContent = "Details";
 
-                        // Füge die Benutzer-ID als benutzer-id-Attribut hinzu
+                        // FHinzufügen der User ID, damit diese später direkt in die URl übergeben werden kann und somit die Detailseite geöffnet werden kann
                         detailsButton.setAttribute("data-user-id", user.id);
 
                         userCard.appendChild(detailsButton);
                         resultContainer.appendChild(userCard);
                     });
+
+                    // Ausgabe eines Fehler, wenn es in der Stadt keine User gibt
                 } else {
                     const resultContainer = document.getElementById("result");
                     resultContainer.innerHTML = "<p>Keine Benutzer gefunden.</p>";
                 }
             })
+            //Fehlerbehandlung
             .catch(error => {
                 console.error("Fehler beim Abrufen der Daten:", error);
             });
     } else {
         const resultContainer = document.getElementById("result");
-        resultContainer.innerHTML = "<p>Geben Sie eine Stadt ein, um Benutzer anzuzeigen.</p>";
+        resultContainer.innerHTML = "<p>Geben sie eine Stadt ein, um Benutzer anzuzeigen. Wenn sie eine Stadt eingegeben haben, in der User registriert sind, dann erhalten sie die Möglichkeit alle Posts dieser User zu sehen. Besonders aktiv sind User in größeren Städten, wie zum Beispiel Manchester oder Washington</p>";
     }
 });
 
-// Event-Handler für das Klicken auf "Details" in den Suchergebnissen
+// Erstellen des Listener für den Details Button, der auf die neue Detal Seite weiterleiten soll
 document.getElementById('result').addEventListener('click', function (event) {
     if (event.target && event.target.className === 'details-button') {
         const userId = event.target.getAttribute('data-user-id');
@@ -53,34 +58,31 @@ document.getElementById('result').addEventListener('click', function (event) {
     }
 });
 
-// Funktion zum Abrufen von Benutzerdetails und Navigieren zur Detailansicht
+// Abruf der Detailansicht für die spezifische User ID 
 function showDetails(userId) {
-    // Navigieren zur detail.html-Seite mit Benutzer-ID als Query-Parameter
+    // Erstellen der individuellen URL für den User auf der Detailseite
     window.location.href = `detail.html?userId=${userId}`;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+//Erstellen weiterer Listener für die Suche, die Ergebnisse und den Titel
+
+document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('search');
     const searchButton = document.getElementById('search-button');
     const resultBox = document.getElementById('result');
     const title = document.getElementById('title');
 
-    // Hinzufügen der Enter-Tasten-Ereignisverarbeitung
-    searchInput.addEventListener('keyup', function(event) {
+    // Hinzufügen einer Verarbeitung für die Enter Taste, damit beim drücken dieser automatischgesucht wird
+    searchInput.addEventListener('keyup', function (event) {
         if (event.key === 'Enter') {
             searchButton.click();
         }
     });
 
-    // Klicken auf "Telefonbuch" stellt den ursprünglichen Text wieder her
-    title.addEventListener('click', function() {
+    // Wenn man auf den Text Post@Data klickt, wird die Suchleiste geleert, um wieder die leere Startseite zu simulieren
+    title.addEventListener('click', function () {
         resultBox.textContent = 'Geben Sie eine Stadt ein, um Benutzer anzuzeigen.';
-        searchInput.value = ''; 
+        searchInput.value = '';
     });
 });
 
-// Funktion zum Abrufen von Benutzerdetails und Navigieren zur Detailansicht
-function showDetails(userId) {
-    // Navigieren zur detail.html-Seite mit Benutzer-ID als Query-Parameter
-    window.location.href = `detail.html?userId=${userId}`;
-}

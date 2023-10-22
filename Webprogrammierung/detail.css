@@ -1,4 +1,3 @@
-* Basis-Styles */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -19,7 +18,7 @@ header {
     justify-content: center;
     align-items: center;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2px; /* Abstand zur blauen Farbe des Headers */
+    margin-bottom: 10px;
 }
 
 header h1 {
@@ -31,7 +30,6 @@ header h1 {
 }
 
 
-/* Stil für Benutzerdetails */
 .user-details {
     max-width: 800px;
     padding: 1rem;
@@ -48,14 +46,13 @@ header h1 {
     justify-content: space-between;
 }
 
-/* Stil für einzelne Post-Karten */
 .post-card {
     background-color: #fff;
     border: 1px solid #e1e1e1;
     border-radius: 5px;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
     margin: 1rem;
-    padding: 1rem;
+    padding: 3rem;
     flex: 0 0 calc(33.333% - 2rem);
 }
 
@@ -69,14 +66,24 @@ header h1 {
     margin: 0.5rem 0;
 }
 
-/* Hover-Effekt für Post-Karten */
 .post-card:hover {
     transform: scale(1.05);
 }
 
-/* Media Query für kleinere Bildschirme (max-width: 767px) */
+@media screen and (min-width: 768px) {
+
+
+    header {
+        width: 100%;
+        background-color: #0074d9;
+        color: #fff;
+        padding: 1rem;
+    }
+}
+
+/* Media Query für kleinere Bildschirme mit <=767px*/
 @media screen and (max-width: 767px) {
-    /* Stil für Benutzerdetails auf kleineren Bildschirmen anpassen */
+
     .user-details {
         padding: 1rem;
     }
@@ -90,7 +97,7 @@ header h1 {
         flex-direction: column;
     }
 
-    /* Stil für einzelne Post-Karten auf kleineren Bildschirmen anpassen */
+
     .post-card {
         flex: 0 0 100%;
         margin: 0.5rem 0;
@@ -108,4 +115,3 @@ header h1 {
         transform: none;
     }
 }
-

@@ -1,9 +1,9 @@
-/* Basis-Styles */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f3f4f6;
+    /*Hinweis: Die Farbcodes wurden jeweils mit ChatGPT erstellt, damit die Faben und ihre Variationen optisch gut zueinander passen*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,7 +19,7 @@ header {
     justify-content: center;
     align-items: center;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px; /* Abstand zur blauen Farbe des Headers */
+    margin-bottom: 10px;
 }
 
 header h1 {
@@ -34,7 +34,7 @@ header h1 {
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 800px; /* Größere Searchbar auf größeren Bildschirmen */
+    max-width: 800px;
     padding: 1rem;
 }
 
@@ -48,7 +48,7 @@ header h1 {
 }
 
 .search-input-large {
-    padding: 0.75rem; /* Größere Searchbar auf größeren Bildschirmen */
+    padding: 0.75rem;
 }
 
 .search-button {
@@ -60,6 +60,7 @@ header h1 {
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s;
+    /* Animation der Hintergrundfarbe über 0,3 Sekunden*/
 }
 
 main {
@@ -82,6 +83,7 @@ main {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    /* Hinzufügen einer optischen Tiefe, damit die Ergebnissbox optisch ansprechender ist*/
     padding: 1rem;
     width: 100%;
     text-align: center;
@@ -94,17 +96,16 @@ main {
 }
 
 
-/* Responsives Design */
+/* Responsives Design für Geräte mit einer Auflösung >768px */
 @media screen and (min-width: 768px) {
-    /* Header */
+
     header {
         width: 100%;
-        background-color: #0074d9; /* Hinzugefügt: Hintergrundfarbe für den Header */
-        color: #fff; /* Hinzugefügt: Textfarbe für den Header */
+        background-color: #0074d9;
         padding: 1rem;
     }
 
-    /* Suchleiste */
+
     .search-container {
         flex-direction: row;
         justify-content: space-between;
@@ -118,7 +119,8 @@ main {
         padding: 0.5rem;
         font-size: 1rem;
         border: 2px solid #0074d9;
-        border-radius: 5px; /* Hinzugefügt: Runde Ecken für die Suchleiste */
+        border-radius: 5px;
+        /*Hinzufügen runder Ecken */
     }
 
     .search-button {
@@ -135,9 +137,9 @@ main {
 
     .search-button:hover {
         background-color: #0056b3;
+        /* Hinzufügen eines hovers, damit man ein optisches Feedback dazu erhällt, wenn man auf dem Button ist*/
     }
 
-    /* Suchergebnisse */
     .result-container {
         width: 100%;
         display: flex;
@@ -145,7 +147,6 @@ main {
         justify-content: space-between;
     }
 
-    /* Usercards */
     .user-card {
         background-color: #fff;
         border: 1px solid #e1e1e1;
@@ -154,12 +155,13 @@ main {
         margin: 1rem;
         padding: 1rem;
         flex: 0 0 calc(33.333% - 2rem);
-        transition: transform 0.3s; /* Hinzugefügt: Animation */
+        /*Die wird für die flexible Anpassung der Größe der Usercards auf verschienden Bildschirmgrößen verwenden*/
+        transition: transform 0.3s;
     }
 
     .user-card img {
         max-width: 100%;
-        border-radius: 5px; /* Hinzugefügt: Runde Ecken für Bilder */
+        border-radius: 5px;
     }
 
     .user-card-details {
@@ -178,7 +180,7 @@ main {
         cursor: pointer;
         font-size: 1rem;
         transition: background-color 0.3s;
-        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); /* Hinzugefügt: Box-Schatten */
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     .user-card-details button:hover {
@@ -190,7 +192,6 @@ main {
         border-right: 2px solid #f3f4f6;
     }
 
-    /* Moderner Aussehen für die Suchergebnisse */
     .result-box {
         padding: 1rem;
         background-color: #f8f8f8;
@@ -201,71 +202,69 @@ main {
         text-align: center;
     }
 
-    /* Hover-Effekt für Usercards */
+
     .user-card:hover {
-        transform: scale(1.05); /* Hinzugefügt: Vergrößerung beim Hover */
+        transform: scale(1.05);
+        /*Vergrößerung der User Cards beim hovern */
     }
 }
-/* Basis-Styles (unverändert) */
 
-/* Optimierungen für kleinere Bildschirme */
+/* Optimierungen für kleinere Bildschirme mit <=767px */
+
 @media screen and (max-width: 767px) {
-    /* Header */
-    @media screen and (max-width: 767px) {
-        /* Header */
-        header {
-            text-align: center;
-            background-color: #0074d9;
-            color: #fff;
-            padding: 1rem;
-        }
-    
-        /* Suchleiste */
-        .search-container {
-            flex-direction: row;
-            justify-content: space-between; /* Hinzugefügt: Abstand zu den Seitenrändern */
-            align-items: center;
-            padding: 1rem;
-            margin: 0 1rem; /* Hinzugefügt: Abstand zu den Seitenrändern */
-        }
-    
-        .search-input {
-            width: auto;
-            flex: 1;
-            padding: 0.5rem;
-            font-size: 1rem;
-            border: 2px solid #0074d9;
-            border-radius: 5px;
-            margin-left: 0.5rem; /* Hinzugefügt: Abstand zum rechten Seitenrand */
-        }
-    
-        .search-button {
-            width: auto;
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            background-color: #0074d9;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-right: 0.5rem;
-        }
-    
-        .search-button:hover {
-            background-color: #0056b3;
-        }
+
+    header {
+        text-align: center;
+        background-color: #0074d9;
+        color: #fff;
+        padding: 1rem;
+    }
+
+    /* Suchleiste */
+    .search-container {
+        flex-direction: row;
+        justify-content: space-between;
+        /*Abstand zu den Seitenrändern */
+        align-items: center;
+        padding: 1rem;
+        margin: 0 1rem;
+    }
+
+    .search-input {
+        width: auto;
+        flex: 1;
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 2px solid #0074d9;
+        border-radius: 5px;
+        margin-left: 0.5rem;
+    }
+
+    .search-button {
+        width: auto;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        background-color: #0074d9;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-right: 0.5rem;
+    }
+
+    .search-button:hover {
+        background-color: #0056b3;
+    }
 
     .search-button {
         width: flex;
     }
 
-    /* Suchergebnisse */
     .result-container {
         width: 100%;
     }
 
-    /* Usercards */
     .user-card {
         background-color: #fff;
         flex: 0 0 100%;
@@ -308,6 +307,5 @@ main {
 
     .user-card-details button:hover {
         background-color: #0056b3;
-    }
     }
 }
