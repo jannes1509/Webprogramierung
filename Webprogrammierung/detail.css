@@ -71,6 +71,15 @@ header h1 {
 .post-card:hover {
     transform: none;
 }
+footer{
+    background-color: #0074d9;
+    width: 100%;
+    font-size: 0.7rem;
+    text-align: left;
+    padding: 10px; 
+    margin-top: auto;
+
+}
 
 @media screen and (min-width: 768px) {
 
@@ -99,6 +108,10 @@ header h1 {
     }
     .post-card:hover {
         transform: scale(1.05);
+    }
+    footer{
+        font-size: 1rem;
+        text-align: center;
     }
 }
 

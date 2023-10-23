@@ -145,6 +145,15 @@ main {
 .user-card-details button:hover {
     background-color: #0056b3;
 }
+footer{
+    background-color: #0074d9;
+    width: 100%;
+    font-size: 0.7rem;
+    text-align: left;
+    padding: 10px; 
+    margin-top: auto;
+
+}
 
 
 /* Responsives Design für Geräte mit einer Auflösung >768px */
@@ -212,5 +221,9 @@ main {
     .user-card:hover {
         transform: scale(1.05);
         /*Vergrößerung der User Cards beim hovern */
+    }
+    footer{
+        font-size: 1rem;
+        text-align: center;
     }
 }
