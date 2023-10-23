@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Wenn man auf den Text Post@Data klickt, wird die Suchleiste geleert, um wieder die leere Startseite zu simulieren
     title.addEventListener('click', function () {
-        resultBox.textContent = 'Geben Sie eine Stadt ein, um Benutzer anzuzeigen.';
+        resultBox.textContent = 'Geben Sie eine Stadt ein, um Benutzer anzuzeigen. Wenn Sie eine Stadt eingegeben haben, in der User registriert sind, dann erhalten sie die Möglichkeit alle Posts dieser User zu sehen. Besonders aktiv sind unsere Usern in größeren Städten, wie zum Beispiel Manchester oder Washington';
         searchInput.value = '';
     });
 });
