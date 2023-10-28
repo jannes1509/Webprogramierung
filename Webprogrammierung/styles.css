@@ -71,6 +71,29 @@ header h1 {
 .post-card:hover {
     transform: none;
 }
+.comment-card {
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    flex: 0 0 100%;
+    margin: 0.5rem 0;
+}
+
+.comment-card h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.comment-card p {
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+}
+
+.comment-card:hover {
+    transform: none; /* Entfernt den Hover-Effekt für Kommentar-Karten */
+}
 
 .search-container {
     display: flex;
@@ -114,6 +137,22 @@ header h1 {
 }
 .search-button:hover {
     background-color: #0056b3;
+}
+.details-button{
+    background-color: #0074d9;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    width: flex;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    margin-right: 0.5rem;
+}
+
+.hidden{
+    display: none;
 }
 main {
     width: 100%;
@@ -186,6 +225,8 @@ main {
 .user-card-details button:hover {
     background-color: #0056b3;
 }
+
+
 footer{
     background-color: #0074d9;
     width: 100%;
@@ -193,6 +234,10 @@ footer{
     text-align: left;
     padding: 10px; 
     margin-top: auto;
+    color: #fff;
+}
+a{
+    text-decoration: none;
     color: #fff;
 }
 
@@ -224,6 +269,11 @@ footer{
      width: auto;
     }
 
+    .details-button{
+        margin-right: 0;
+        width: auto;
+    }
+
 
     .result-container {
         width: 100%;
@@ -248,6 +298,7 @@ footer{
     .user-card:not(:last-child) {
         border-right: 2px solid #f3f4f6;
     }
+    
 
     .result-box {
         padding: 1rem;

@@ -10,13 +10,13 @@
 
 <body>
     <header>
-        <h1 id="title" class="clickable">Find@Posts</h1>
+        <h1 id="title" class="clickable"><a href="Startseite.html">Find@Posts</a></h1>
     </header>
     <div class="search-container">
         <input type="text" id="search" placeholder="Stadt eingeben" class="search-input">
         <button id="search-button" class="search-button">Suchen</button>
     </div>
-    <main>
+    <main id="startseite" class="hidden">
         <div id="result-container" class="result-container">
             <div id="result" class="result-box">
                 <p class="search-prompt">Geben Sie eine Stadt ein, um Benutzer anzuzeigen. Wenn Sie eine Stadt
@@ -24,6 +24,18 @@
                     User zu sehen. Besonders aktiv sind unsere User in größeren Städten, wie zum Beispiel Manchester
                     oder Washington. </p>
             </div>
+        </div>
+    </main>
+    <main id="detailseite" class="hidden">
+        <div id="user-details" class="user-details">
+            <h2>Benutzerdetails</h2>
+            <div id="user-posts" class="user-posts">
+            </div>
+        </div>
+    </main>
+    <main id="kommentarseite" class="hidden">
+        <div id="user-details2" class="user-details2">
+            <h2>Kommentare</h2>
         </div>
     </main>
     <footer>
