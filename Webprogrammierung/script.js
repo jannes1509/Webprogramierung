@@ -212,6 +212,7 @@ function showPostComments(postId) {
         .then(res => res.json())
         .then(data => {
             const comments = data.comments;
+            if(comments.length>0){
             console.log(comments);
             // Hier erstellen wir ein HTML-Element für Kommentare und füllen es mit den Kommentaren
             const commentsHTML = `
@@ -222,6 +223,10 @@ function showPostComments(postId) {
             `;
             // Hier fügen wir das HTML-Element für Kommentare in die Seite ein
             userDetailsContainer.innerHTML = commentsHTML;
+            }
+            else{
+                userDetailsContainer.innerHTML=`<h2>Post #${postId} hat leider noch keine Kommentare`;
+            }
         })
         .catch(error => {
             console.error("Fehler beim Abrufen der Kommentare:", error);
