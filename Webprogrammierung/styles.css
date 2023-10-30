@@ -116,8 +116,8 @@ header h1 {
     justify-content: space-between;
     align-items: center;
     margin: 0 1rem;
+    display: inline-flex;
 }
-
 .search-input {
     flex: 1;
     padding: 0.5rem;
@@ -348,5 +348,8 @@ a{
     footer{
         font-size: 1rem;
         text-align: center;
+    }
+    .comment-card:hover{
+        transform: scale(1.05);
     }
 }

@@ -41,39 +41,41 @@ function formatieren(input) {
     return input;
 }
 function startseiteLaden() {
-    const searchInput = document.getElementById('search');
-    const searchButton = document.getElementById('search-button');
+    let searchInput = document.getElementById('search');
+    let searchButton = document.getElementById('search-button');
     searchInput.addEventListener('keyup', function (event) {
         if (event.key === 'Enter') {
             searchButton.click();
         }
     });
     document.getElementById("search-button").addEventListener("click", function () {
-        const city= formatieren(document.getElementById("search").value);
+        let city= formatieren(document.getElementById("search").value);
+        let searchContainer = document.querySelector('.search-container');
+        searchContainer.style.display="none";
         //Prüfen, ob eine Stadt eingeben wurde
         if (city) {
-            const apiUrl = `https://dummyjson.com/users/filter?key=address.city&value=${city}`;
+            let apiUrl = `https://dummyjson.com/users/filter?key=address.city&value=${city}`;
 
             //API-Aufruf
             fetch(apiUrl)
                 .then(response => response.json())
                 .then(data => {
-                    const users = data.users;
+                    let users = data.users;
                     //Prüfen, ob in der Stadt User vorhanden sind
                     if (users.length > 0) {
-                        const resultContainer = document.getElementById("result");
+                        let resultContainer = document.getElementById("result");
                         resultContainer.innerHTML = "";
                         //Erstellen der Usercard für jeden einzelnen User
                         users.forEach(user => {
-                            const userCard = document.createElement("div");
+                            let userCard = document.createElement("div");
                             userCard.classList.add("user-card");
 
-                            const userName = document.createElement("h2");
+                            let userName = document.createElement("h2");
                             userName.textContent = `${user.firstName} ${user.lastName}`;
                             userCard.appendChild(userName);
 
                             //Hinzufügen des Details Button, über den auf die Detail Website zugegriffen werden kann
-                            const detailsButton = document.createElement("button");
+                            let detailsButton = document.createElement("button");
                             detailsButton.classList.add("details-button");
                             detailsButton.textContent = "Details";
 
@@ -86,7 +88,7 @@ function startseiteLaden() {
 
                         // Ausgabe eines Fehler, wenn es in der Stadt keine User gibt
                     } else {
-                        const resultContainer = document.getElementById("result");
+                        let resultContainer = document.getElementById("result");
                         resultContainer.innerHTML = "<p>Keine Benutzer gefunden.</p>";
                     }
                 })
@@ -95,7 +97,7 @@ function startseiteLaden() {
                     console.error("Fehler beim Abrufen der Daten:", error);
                 });
         } else {
-            const resultContainer = document.getElementById("result");
+            let resultContainer = document.getElementById("result");
             resultContainer.innerHTML = "<p>Geben sie eine Stadt ein, um Benutzer anzuzeigen. Wenn sie eine Stadt eingegeben haben, in der User registriert sind, dann erhalten sie die Möglichkeit alle Posts dieser User zu sehen. Besonders aktiv sind User in größeren Städten, wie zum Beispiel Manchester oder Washington</p>";
         }
     });
@@ -103,7 +105,7 @@ function startseiteLaden() {
     // Erstellen des Listener für den Details Button, der auf die neue Detal Seite weiterleiten soll
     document.getElementById('result').addEventListener('click', function (event) {
         if (event.target && event.target.className === 'details-button') {
-            const userId = event.target.getAttribute('data-user-id');
+            let userId = event.target.getAttribute('data-user-id');
             showDetails(userId);
         }
     });
@@ -118,18 +120,20 @@ function showDetails(userId) {
 
 function detailseiteLaden() {
 
-    const searchInput = document.getElementById('search');
-    const searchButton = document.getElementById('search-button');
-    const resultBox = document.getElementById('result');
-    const title = document.getElementById('title');
-    const userDetailsContainer = document.getElementById('user-details');
-    const userPostsContainer = document.getElementById('user-posts');
-    const urlParams = new URLSearchParams(window.location.search);
-    const userId = urlParams.get('userId');
-    const url = window.location.href;
-    const regex = /detail\/(.*)/;
-    const match = regex.exec(url);
-    const number = match[1];
+    let searchInput = document.getElementById('search');
+    let searchButton = document.getElementById('search-button');
+    let resultBox = document.getElementById('result');
+    let title = document.getElementById('title');
+    let userDetailsContainer = document.getElementById('user-details');
+    let userPostsContainer = document.getElementById('user-posts');
+    let urlParams = new URLSearchParams(window.location.search);
+    let userId = urlParams.get('userId');
+    let url = window.location.href;
+    let regex = /detail\/(.*)/;
+    let match = regex.exec(url);
+    let number = match[1];
+    let searchContainer = document.querySelector('.search-container');
+    searchContainer.style.display="none";
 
     // Wenn man auf den Text Post@Data klickt, wird die Suchleiste geleert, um wieder die leere Startseite zu simulieren
     title.addEventListener('click', function () {
@@ -140,16 +144,16 @@ function detailseiteLaden() {
     fetch(`https://dummyjson.com/users/${number}`)
     .then(res => res.json())
     .then(userData => {
-        const username = userData.username;
+        let username = userData.username;
         // API-Aufruf, um die Posts des Users zu erhalten
         fetch(`https://dummyjson.com/posts/user/${number}`)
             .then(res => res.json())
             .then(data => {
-                const userPosts = data.posts;
+                let userPosts = data.posts;
                 // Prüfen, ob ein User bereits Posts erstellt hat
                 if (userPosts.length > 0) {
                     // Posts anzeigen
-                    const userDetailsHTML = `
+                    let userDetailsHTML = `
                         <h2>Alle Posts von dem Nutzer ${username}</h2>
                         <div class="user-posts">
                             ${userPosts.map(post => createPostCard(post)).join('')}
@@ -157,17 +161,17 @@ function detailseiteLaden() {
 
                     userDetailsContainer.innerHTML = userDetailsHTML;
                 } else {
-                    const userDetailsHTML = `${username} hat bisher keine Posts erstellt`;
+                    let userDetailsHTML = `${username} hat bisher keine Posts erstellt`;
                     userDetailsContainer.innerHTML = userDetailsHTML;
                 }
 
                 // Hinzufügen von Kommentar-Buttons zu jedem Post
                 userPosts.forEach(post => {
-                    const commentButton = document.createElement('button');
+                    let commentButton = document.createElement('button');
                     commentButton.classList.add("details-button");
                     commentButton.innerText = 'Kommentare anzeigen';
                     commentButton.addEventListener('click', () => kommentareZeigen(post.id));
-                    const postCard = document.querySelector(`#post-${post.id}`);
+                    let postCard = document.querySelector(`#post-${post.id}`);
                     postCard.appendChild(commentButton);
                 });
             })
@@ -189,10 +193,12 @@ function kommentareZeigen(postId)
 
 function kommentarseiteLaden()
 {
-    const url = window.location.href;
-    const regex = /kommentare\/(.*)/;
-    const match = regex.exec(url);
-    const postId = match[1];
+    let searchContainer = document.querySelector('.search-container');
+    searchContainer.style.display="none";
+    let url = window.location.href;
+    let regex = /kommentare\/(.*)/;
+    let match = regex.exec(url);
+    let postId = match[1];
     showPostComments(postId);
 
 }
@@ -206,16 +212,16 @@ function createPostCard(post) {
 }
 function showPostComments(postId) {
     console.log("test1");
-    const userDetailsContainer = document.getElementById('user-details2');
+    let userDetailsContainer = document.getElementById('user-details2');
     // API-Aufruf, um Kommentare für einen bestimmten Post abzurufen
     fetch(`https://dummyjson.com/comments/post/${postId}`)
         .then(res => res.json())
         .then(data => {
-            const comments = data.comments;
+            let comments = data.comments;
             if(comments.length>0){
             console.log(comments);
             // Hier erstellen wir ein HTML-Element für Kommentare und füllen es mit den Kommentaren
-            const commentsHTML = `
+            let commentsHTML = `
                 <h2>Kommentare für Post #${postId}</h2>
                 <div class="comments">
                     ${comments.map(comment => createCommentCard(comment)).join('')}
@@ -241,6 +247,7 @@ function createCommentCard(comment) {
         </div>
     `;
 }
+
 
 
 window.addEventListener("load", () => {
