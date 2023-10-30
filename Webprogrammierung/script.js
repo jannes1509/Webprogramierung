@@ -97,8 +97,7 @@ function startseiteLaden() {
                     console.error("Fehler beim Abrufen der Daten:", error);
                 });
         } else {
-            let resultContainer = document.getElementById("result");
-            resultContainer.innerHTML = "<p>Geben sie eine Stadt ein, um Benutzer anzuzeigen. Wenn sie eine Stadt eingegeben haben, in der User registriert sind, dann erhalten sie die Möglichkeit alle Posts dieser User zu sehen. Besonders aktiv sind User in größeren Städten, wie zum Beispiel Manchester oder Washington</p>";
+            window.location.href= "startseite.html";
         }
     });
 
