@@ -10,13 +10,15 @@
 
 <body>
     <header>
+        <!-- Erstellen des Headers als clickable Klasse und mit der href zur Startseite, damit diese später in der js Datei verwendet werden kann-->
         <h1 id="title" class="clickable"><a href="Startseite.html">Find@Posts</a></h1>
     </header>
-        <div class="search-container">
-            <input type="text" id="search" placeholder="Stadt eingeben" class="search-input">
-            <button id="search-button" class="search-button">Suchen</button>
-        </div>
-    <main id="startseite" class="hidden">    
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Stadt eingeben" class="search-input">
+        <button id="search-button" class="search-button">Suchen</button>
+    </div>
+    <!-- Erstellen der Main für die Startseite, die alle nötigen HTML Elemente für die Startseite bereitstellt-->
+    <main id="startseite" class="hidden">
         <div id="result-container" class="result-container">
             <div id="result" class="result-box">
                 <p class="search-prompt">Geben Sie eine Stadt ein, um Benutzer anzuzeigen. Wenn Sie eine Stadt
@@ -26,6 +28,7 @@
             </div>
         </div>
     </main>
+    <!-- Erstellen der Main für die Detailseite, die alle nötigen HTML Elemente für die Detailseite bereitstellt-->
     <main id="detailseite" class="hidden">
         <div id="user-details" class="user-details">
             <h2>Benutzerdetails</h2>
@@ -33,12 +36,14 @@
             </div>
         </div>
     </main>
+    <!-- Erstellen der Main für die Kommentarseite, die alle nötigen HTML Elemente für die Kommentarseite bereitstellt-->
     <main id="kommentarseite" class="hidden">
         <div id="user-details2" class="user-details2">
             <h2>Kommentare</h2>
         </div>
     </main>
     <footer>
+        <!-- Erstellen des Footers der Webanwendung-->
         <div id="footer-container" class="footer-container">
             <p class="footer-prompt">
                 Find@Posts ist deine Seite zum suchen von Posts anderer User in deiner Nähe

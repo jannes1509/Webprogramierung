@@ -18,7 +18,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); /* Erstellen eines Schattens um die Box des Headers*/
     margin-bottom: 10px;
     text-align: center;
 }
@@ -103,7 +103,7 @@ header h1 {
 }
 
 .comment-card:hover {
-    transform: none; /* Entfernt den Hover-Effekt für Kommentar-Karten */
+    transform: none; /* Entfernt den Hover-Effekt für Kommentar-Karten, dieser soll nur bei der Ansicht für große Bildschirme funktionieren */
 }
 
 .search-container {
@@ -186,7 +186,6 @@ main {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-    /* Hinzufügen einer optischen Tiefe, damit die Ergebnissbox optisch ansprechender ist*/
     padding: 1rem;
     width: 100%;
     text-align: center;
@@ -253,7 +252,8 @@ a{
 }
 
 
-/* Responsives Design für Geräte mit einer Auflösung >768px */
+/* Responsives Design für Geräte mit einer Auflösung >768px. Dieser Code verändert das Aussehen mancher HTML Elemente, damit diese 
+    auch auf größeren Geräten ansprechend ausshen */
 @media screen and (min-width: 768px) {
 
     header {
@@ -272,7 +272,6 @@ a{
     .search-input {
         border-radius: 5px;
         margin-left: o;
-        /*Hinzufügen runder Ecken */
     }
 
     .search-button {
